@@ -64,7 +64,9 @@ Given a car and waypoints for it to follow, MPC uses a polynomial to fit the way
   Lf = distance of front axle from centre of gravity
   cte = difference in prediction and actual trajectory => f(x) - y
   epsi = psi - psi_des, where psi_des is given by arctan(f'(x)) 
- 
+  dt = elapsed duration
+  
 Using the given state and actuators and applying the above equations, we have a model that represents our car and can be used to predict future control inputs.
 
-## 
+## Timestep Length and Elapsed Duration
+For the gi
