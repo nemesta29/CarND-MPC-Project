@@ -4,7 +4,6 @@ Self-Driving Car Engineer Nanodegree Program
 ---
 
 ## Dependencies
-
 * cmake >= 3.5 * All OSes: [click here for installation instructions](https://cmake.org/install/)
 * make >= 4.1(mac, linux), 3.81(Windows)
   * Linux: make is installed by default on most Linux distros
@@ -35,7 +34,7 @@ Self-Driving Car Engineer Nanodegree Program
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
-4. Run it: `./mpc`.
+ 4. Run it: `./mpc`.
 
 ## The Model
 A motion model is used to imitate the vehicle's behaviour. While a dynamic model would describe the vehicle's behaviour in reality, a kinematic motion model offers a practical representation of the same. The state variables used to describe the car are as follows:
@@ -76,4 +75,13 @@ For the given situation, a timestep length of N = 25 and an elapsed duration of 
 Both classroom material and trial and error were used to reach this value. Other values tried were N = 10 and dt = 0.1, N = 15 and dt 0.3.
 
 ## Polynomial Fitting and MPC Preprocessing
-The waypoints are presented in Global Coordinates, while the 
+The waypoints are presented in Global Coordinates, while the simulator receives signals in the vehicle coordinates. A conversion process is hence carried out, so that the car becomes origin as is the case for vehicle coordinates. With this conversion, the x, y and psi values become 0 when converted to vehicle coordinates.(Lines 106 to 113)
+
+For fitting the waypoints in a trajectory, a 3rd degree polynomial was used as it was seen sufficient to accomodate curves of the given path.
+
+## Model Predictive Control with Latency
+Latency can be regarded as the internal delay that occurs between an actuator command being issued and the actual change in control. This has been reflected in the system using a delay of 100ms.
+
+MPC deals with latency in the following manner. It simulates the given state through a latency till actual change is reached in the control. The state at that point is then used as input to the system. 
+
+This is implemented in the code by updating the state variables for a timestep equal to latency. The new state achieved is then used as input for the controller function.(Lines 100 to 103)
