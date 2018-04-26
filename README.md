@@ -69,4 +69,11 @@ Given a car and waypoints for it to follow, MPC uses a polynomial to fit the way
 Using the given state and actuators and applying the above equations, we have a model that represents our car and can be used to predict future control inputs.
 
 ## Timestep Length and Elapsed Duration
-For the gi
+
+=> Timestep Length is used to decide how far into the future the predictions are made
+=> Elapsed Duration is the duration of each timestep
+For the given situation, a timestep length of N = 25 and an elapsed duration of dt = 0.05 was used. These values gave a step size that was small enough to make predictions with reduced oscillations and a low error. 
+Both classroom material and trial and error were used to reach this value. Other values tried were N = 10 and dt = 0.1, N = 15 and dt 0.3.
+
+## Polynomial Fitting and MPC Preprocessing
+The waypoints are presented in Global Coordinates, while the 
