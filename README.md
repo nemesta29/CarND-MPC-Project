@@ -1,4 +1,4 @@
-# CarND-Controls-MPC
+ CarND-Controls-MPC
 Self-Driving Car Engineer Nanodegree Program
 
 ---
@@ -46,6 +46,7 @@ Given a car and waypoints for it to follow, MPC uses a polynomial to fit the way
  - delta : gives the steering angle of the vehicle (constrained between -25 degrees to 25 degrees)
  - a : gives the throttle response, where a negative acceleration signifies braking ( from -1  to 1)
  *Note : Constrains are used to keep real world limitations in check*
+ 
  Additionally, two error parameters were maintained to track how closely the trajectory was followed. The errors used were as follows:
   - cte : cross track error : gave how far from the car was from the trajectory
   - epsi : gives the error in orientation of the vehicle
