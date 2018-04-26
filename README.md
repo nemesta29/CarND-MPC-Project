@@ -20,7 +20,7 @@ Self-Driving Car Engineer Nanodegree Program
     git clone https://github.com/uWebSockets/uWebSockets
     cd uWebSockets
     git checkout e94b6e1
-    ```
+    ``
     Some function signatures have changed in v0.14.x. See [this PR](https://github.com/udacity/CarND-MPC-Project/pull/3) for more details.
 
 * **Ipopt and CppAD:** Please refer to [this document](https://github.com/udacity/CarND-MPC-Project/blob/master/install_Ipopt_CppAD.md) for installation instructions.
@@ -30,7 +30,6 @@ Self-Driving Car Engineer Nanodegree Program
 
 
 ## Basic Build Instructions
-
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
@@ -64,16 +63,17 @@ Given a car and waypoints for it to follow, MPC uses a polynomial to fit the way
   cte = difference in prediction and actual trajectory => f(x) - y
   epsi = psi - psi_des, where psi_des is given by arctan(f'(x)) 
   dt = elapsed duration
-  
+ 
 Using the given state and actuators and applying the above equations, we have a model that represents our car and can be used to predict future control inputs.
 
 ## Timestep Length and Elapsed Duration
 
-=> Timestep Length is used to decide how far into the future the predictions are made
-=> Elapsed Duration is the duration of each timestep
+Timestep Length is used to decide how far into the future the predictions are made
+
+Elapsed Duration is the duration of each timestep
+
 For the given situation, a timestep length of N = 25 and an elapsed duration of dt = 0.05 was used. These values gave a step size that was small enough to make predictions with reduced oscillations and a low error. 
 Both classroom material and trial and error were used to reach this value. Other values tried were N = 10 and dt = 0.1, N = 15 and dt 0.3.
-
 ## Polynomial Fitting and MPC Preprocessing
 The waypoints are presented in Global Coordinates, while the simulator receives signals in the vehicle coordinates. A conversion process is hence carried out, so that the car becomes origin as is the case for vehicle coordinates. With this conversion, the x, y and psi values become 0 when converted to vehicle coordinates.(Lines 106 to 113)
 
