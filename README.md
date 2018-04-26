@@ -25,7 +25,7 @@ Self-Driving Car Engineer Nanodegree Program
 
 * **Ipopt and CppAD:** Please refer to [this document](https://github.com/udacity/CarND-MPC-Project/blob/master/install_Ipopt_CppAD.md) for installation instructions.
 * [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page). This is already part of the repo so you shouldn't have to worry about it.
-* Simulator. You can download these from the [releases tab](https://github.com/udacity/self-driving-car-sim/releases).
+ * Simulator. You can download these from the [releases tab](https://github.com/udacity/self-driving-car-sim/releases).
 * Not a dependency but read the [DATA.md](./DATA.md) for a description of the data sent back from the simulator.
 
 ## Basic Build Instructions
@@ -48,8 +48,7 @@ Given a car and waypoints for it to follow, MPC uses a polynomial to fit the way
   - cte : cross track error : gave how far from the car was from the trajectory
   - epsi : gives the error in orientation of the vehicle
   
- Our state is thus given by -> state : (x, y, psi, v, cte, epsi)
- Our actuators are given by -> control : (delta, acc)
+ Our state is thus given by -> state : (x, y, psi, v, cte, epsi) while the actuators are given by -> control : (delta, acc)
  
  The following equations were used to update the state:
   - x_new = x + v * cos(psi) * dt
